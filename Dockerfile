@@ -13,7 +13,11 @@ RUN apt-get update && \
   apt-get remove -y libldap2-dev zlib1g-dev libpng-dev  libpng-dev libmcrypt-dev
 
 
-RUN echo "max_execution_time = 120" >> /usr/local/etc/php/conf.d/docker-vars.ini
+RUN echo "max_execution_time = 120
+sessions.save_path = "/tmp/"
+display_errors = On
+error_reporting = E_NONE
+" >> /usr/local/etc/php/conf.d/docker-vars.ini
 
 WORKDIR /var/www/html
 
