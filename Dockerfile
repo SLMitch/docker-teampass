@@ -21,4 +21,5 @@ RUN wget https://github.com/nilsteampassnet/TeamPass/archive/$TEAMPASS_VERSION.t
   mv TeamP*/* . && \
   rm -rf TeamP*
 RUN mkdir -p /etc/sk
+RUN cp includes/libraries/csrfp/libs/csrfp.config.sample.php includes/libraries/csrfp/libs/csrfp.config.php
 RUN chown -R www-data . /etc/sk
