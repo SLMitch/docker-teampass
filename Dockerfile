@@ -1,14 +1,16 @@
-FROM php:7-apache
+FROM php:7.1-apache
 
 ENV TEAMPASS_VERSION 2.1.25.2
 
  # Install and configure missing PHP requirements
 RUN docker-php-ext-configure bcmath  && docker-php-ext-install bcmath 
+
 RUN apt-get update && \
-  apt-get install -y libldap2-dev wget libpng-dev && \
+  apt-get install -y libldap2-dev wget libpng-dev libmcrypt-dev && \
   docker-php-ext-configure ldap && docker-php-ext-install ldap && \
   docker-php-ext-configure gd  && docker-php-ext-install gd && \
-  apt-get remove -y libldap2-dev zlib1g-dev libpng-dev  libpng-dev
+  docker-php-ext-configure mcrypt  && docker-php-ext-install mcrypt && \
+  apt-get remove -y libldap2-dev zlib1g-dev libpng-dev  libpng-dev libmcrypt-dev
 
 
 RUN echo "max_execution_time = 120" >> /usr/local/etc/php/conf.d/docker-vars.ini
