@@ -4,6 +4,7 @@ ENV TEAMPASS_VERSION 2.1.26-final-3
 
  # Install and configure missing PHP requirements
 RUN docker-php-ext-configure bcmath  && docker-php-ext-install bcmath 
+RUN  docker-php-ext-configure mysqli  && docker-php-ext-install mysqli
 
 RUN apt-get update && \
   apt-get install -y libldap2-dev wget libpng-dev libmcrypt-dev && \
