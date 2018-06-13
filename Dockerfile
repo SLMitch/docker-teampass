@@ -1,6 +1,6 @@
 FROM php:7.1-apache
 
-ENV TEAMPASS_VERSION 2.1.25.2
+ENV TEAMPASS_VERSION 2.1.26-final-3
 
  # Install and configure missing PHP requirements
 RUN docker-php-ext-configure bcmath  && docker-php-ext-install bcmath 
