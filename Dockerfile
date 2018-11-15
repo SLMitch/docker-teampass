@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.0-apache
 
 ENV TEAMPASS_VERSION 2.1.27.29
 
